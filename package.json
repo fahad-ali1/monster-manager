@@ -1,0 +1,39 @@
+{
+  "type": "module",
+  "name": "monster-manager",
+  "version": "1.0.0",
+  "description": "A Node.js CRUD application for managing monsters. This application allows users to create, read, update, and delete monster entries using Express.js and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test",
+    "start": "nodemon index.js",
+    "live": "nodemon index.js",
+    "uglify": "uglifyjs index.js --output script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fahad-ali1/monster-manager.git"
+  },
+  "keywords": [
+    "monster",
+    "manager",
+    "mongo",
+    "express",
+    "node"
+  ],
+  "author": "Fahad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fahad-ali1/monster-manager/issues"
+  },
+  "homepage": "https://github.com/fahad-ali1/monster-manager#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3",
+    "path": "^0.12.7"
+  }
+}

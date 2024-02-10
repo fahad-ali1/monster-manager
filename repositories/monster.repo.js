@@ -9,19 +9,19 @@ export const getMonstersFromRepo = async (query) => {
   }
 }
 
-export const getMonsterFromRepo = async (id) => {
+export const getMonsterFromRepo = async (query) => {
   try {
-    const monster = await Monster.findOne({ id: id });
+    const monster = await Monster.findOne(query);
     return monster;
   } catch (e) {
     throw Error(`Error while fetching monster with ID ${id}`);
   }
 }
 
-export const updateMonsterInRepo = async (id, update) => {
+export const updateMonsterInRepo = async (query, update) => {
   try {
     const monster = await Monster.findOneAndUpdate(
-      { id: id },
+      { ...query },
       { ...update },
       { new: true }
     ).lean();
@@ -31,9 +31,9 @@ export const updateMonsterInRepo = async (id, update) => {
   } 
 }
 
-export const deleteMonsterInRepo = async (id) => {
+export const deleteMonsterInRepo = async (query) => {
   try {
-    const monster = await Monster.findOneAndDelete({ id: id });
+    const monster = await Monster.findOneAndDelete({ ...query });
     return monster;
   } catch (e) {
     throw Error("Error while deleting a monster");

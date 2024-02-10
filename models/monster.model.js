@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const MonsterSchema = new mongoose.Schema(
     {
-      id: { type: Number, required: true, unique: true}, 
+      id: { type: Number, unique: true}, 
       name: { type: String, required: true },
       username: { type: String },
       email: { type: String },
@@ -23,8 +23,9 @@ const MonsterSchema = new mongoose.Schema(
         catchPhrase: { type: String },
         bs: { type: String }
       },
-      image_url: { type: String }
-    }
+      image_url: { type: String, required: true }
+    },
+    { timestamps: true, strictQuery: true }
   );
 
 const monster = mongoose.model("Monster", MonsterSchema);

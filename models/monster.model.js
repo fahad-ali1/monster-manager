@@ -2,7 +2,6 @@ import mongoose from "mongoose";
 
 const MonsterSchema = new mongoose.Schema(
     {
-      id: { type: Number, unique: true}, 
       name: { type: String, required: true },
       username: { type: String },
       email: { type: String },

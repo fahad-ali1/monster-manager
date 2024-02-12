@@ -43,18 +43,11 @@ export const createMonsterInRepo = async (payload) => {
     const newMonster = new Monster({ ...payload });
     const savedMonster = await newMonster.save();
 
-    // get highest ID in current dataset
-    const maxIdMonster = await Monster.findOne().sort({ id: -1 });
-    let nextId = 1; // default value
-
-    if (maxIdMonster) {
-      nextId = maxIdMonster.id + 1;
-    }
-    // update the counter sequence to highest + 1
-    await Counter.findOneAndUpdate({ _id: 'monsterId' }, { seq: nextId }, { upsert: true });
+    // auto increment ID
+    const counter = await Counter.findByIdAndUpdate({ _id: 'monsterId' }, { $inc: { seq: 1 } }, { new: true, upsert: true });
 
     // update the saved monster ID with new increment and save again
-    savedMonster.id = nextId;
+    savedMonster.id = counter.seq;
     await savedMonster.save();
 
     return savedMonster;

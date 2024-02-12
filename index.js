@@ -7,15 +7,16 @@ const app = express();
 const port = 8000;
 
 connectDB();
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+    // parse application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: false }));
 
-// parse application/json
-app.use(bodyParser.json());
+    // parse application/json
+    app.use(bodyParser.json());
 
-// routes
-app.use("/", monstersRoute);
+    // routes
+    app.use("/", monstersRoute);
 
-app.listen(port, function () {
-  console.log(`🚀 Fire app listening on port ${port}!`);
-});
+    app.listen(port, function () {
+      console.log(`🚀 Fire app listening on port ${port}!`);
+    }
+);

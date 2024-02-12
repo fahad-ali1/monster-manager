@@ -1,5 +1,6 @@
-import { getMonstersFromRepo,getMonsterFromRepo,updateMonsterInRepo, deleteMonsterInRepo, createMonsterInRepo } from '../repositories/monster.repo.js';
+import { getMonstersFromRepo,getMonsterFromRepo, updateMonsterInRepo, deleteMonsterInRepo, createMonsterInRepo } from '../repositories/monster.repo.js';
 
+// Gets all the monsters list from database
 export const getMonsters = async (req, res) => {
   try {
     const monsters = await getMonstersFromRepo();
@@ -9,6 +10,7 @@ export const getMonsters = async (req, res) => {
   }
 }
 
+// Gets a single monster by ID from the list in the database
 export const getMonster = async (req, res) => {
   const { id } = req.params;
   try {
@@ -19,17 +21,19 @@ export const getMonster = async (req, res) => {
   }
 }
 
+// Updates a single monster by ID from the list in the database
 export const updateMonster = async (req, res) => {
   const { id } = req.params;
   const { body } = req;
   try {
-    const monster = await updateMonsterInRepo({ id: id }, body);
+    const monster = await updateMonsterInRepo(id, body);
     res.status(200).send(monster);
   } catch (e) {
     res.status(500).send(e.message, `failed to fetch monster ${id}`);
   }
 }
 
+// Deletes a single monster by ID from the list in the database
 export const deleteMonster = async (req, res) => {
   const { id } = req.params;
   try {
@@ -44,6 +48,7 @@ export const deleteMonster = async (req, res) => {
   }
 };
 
+// Createss a single monster in the database
 export const createMonster = async (req, res) => {
   const { body } = req;
   try {
@@ -51,6 +56,6 @@ export const createMonster = async (req, res) => {
     console.log(monster);
     res.status(200).send(monster);
   } catch (e) {
-    res.status(500).send(e.message, `failed to fetch monster ${id}`);
+    res.status(500).send(e.message, `failed to create monster`);
   }
 }

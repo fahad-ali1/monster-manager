@@ -18,10 +18,10 @@ export const getMonsterFromRepo = async (query) => {
   }
 }
 
-export const updateMonsterInRepo = async (query, update) => {
+export const updateMonsterInRepo = async (id, update) => {
   try {
     const monster = await Monster.findOneAndUpdate(
-      { ...query },
+      { id:id },
       { ...update },
       { new: true }
     ).lean();

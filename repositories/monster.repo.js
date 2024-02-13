@@ -40,8 +40,7 @@ export const deleteMonsterInRepo = async (query) => {
 export const createMonsterInRepo = async (payload) => {
   try {
     // create a new monster object and save to database
-    const newMonster = new Monster({ ...payload });
-    const savedMonster = await newMonster.save();
+    const savedMonster = await new Monster({ ...payload }).save();
 
     // auto increment ID
     const counter = await Counter.findByIdAndUpdate({ _id: 'monsterId' }, { $inc: { seq: 1 } }, { new: true, upsert: true });

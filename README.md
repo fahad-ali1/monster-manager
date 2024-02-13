@@ -3,7 +3,7 @@
 A Node.js CRUD application for managing monsters. This application allows users to create, read, update, and delete monster entries using Express.js and MongoDB.
 
 ## View it live on render
-On render: [Monster Manager](https://monster-manager.onrender.com)
+Live on render: [Monster Manager](https://monster-manager.onrender.com)
 
 ## Features
 
@@ -45,9 +45,12 @@ To run the Monster Management App locally, follow these steps:
 4. Set up the MongoDB database:
 
    ```bash
+   mongosh
+   use monsters
+   db.monsters.insertOne({ name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: { street: "Kulas Light", suite: "Apt. 556", city: "Gwenborough", zipcode: "92998-3874", geo: { lat: "-37.3159", lng: "81.1496" } } });
    ```
 
-5. OPTIONAL if connecting to external database - Create and set up your environment variables for a database in process.env
+a. OPTIONAL if connecting to external database - Create and set up your environment variables for a database in process.env
    ```bash
    {
     NAME='',
@@ -55,13 +58,13 @@ To run the Monster Management App locally, follow these steps:
    }
    ```
 
-7. Start the server:
+6. Start the server:
 
     ```bash
     nodemon index.js
     ```
 
-8. You can now access the application at `http://localhost:8000`.
+7. You can now access the application at `http://localhost:8000`.
 
 ## API Endpoints
 

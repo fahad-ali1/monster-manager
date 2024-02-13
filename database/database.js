@@ -4,8 +4,13 @@ mongoose.set('strictQuery', true);
 
 // Connect to local database
 export const connectDB = async () => {
+  const dbNAME = process.env.dbNAME
+  const dbPASSWORD = process.env.dbPASSWORD
+  const dbCLUSTER = process.env.dbCLUSTER
+  const dataBase = process.env.dataBase;
+
   // const url = `mongodb://localhost:27017/monsters`;
-  const url = 'mongodb+srv://'+process.env.NAME+':'+process.env.PASSWORD+'@cluster0.dv9mrjt.mongodb.net/'
+  const url = `mongodb+srv://${dbNAME}:${dbPASSWORD}@${dbCLUSTER}/${dataBase}`;
 
   try {
     const connection = await mongoose.connect(url, {

@@ -2,8 +2,10 @@ import express from "express";
 import bodyParser from "body-parser";
 import monstersRoute from "./routes/monster.route.js";
 import { connectDB } from "./database/database.js";
+import dotenv from "dotenv";
 
 const app = express();
+dotenv.config();
 const port = 8000;
 
 connectDB();

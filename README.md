@@ -50,12 +50,12 @@ To run the Monster Management App locally, follow these steps:
    db.monsters.insertOne({ name: "Leanne Graham", username: "Bret", email: "Sincere@april.biz", address: { street: "Kulas Light", suite: "Apt. 556", city: "Gwenborough", zipcode: "92998-3874", geo: { lat: "-37.3159", lng: "81.1496" } } });
    ```
 
-a. OPTIONAL if connecting to external database - Create and set up your environment variables for a database in process.env
+a. OPTIONAL if connecting to external database - Create and set up your environment variables for a database in .env
    ```bash
-   {
-    NAME='',
-    PASSWORD=''
-   }
+dbNAME=example123
+dbPASSWORD=example
+dbCLUSTER=clusterexample.example.mongodb.net
+dataBase=ExampleDataBase
    ```
 
 6. Start the server:

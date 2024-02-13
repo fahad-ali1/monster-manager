@@ -47,13 +47,21 @@ To run the Monster Management App locally, follow these steps:
    ```bash
    ```
 
-6. Start the server:
+5. OPTIONAL if connecting to external database - Create and set up your environment variables for a database in process.env
+   ```bash
+   {
+    NAME='',
+    PASSWORD=''
+   }
+   ```
+
+7. Start the server:
 
     ```bash
     nodemon index.js
     ```
 
-7. You can now access the application at `http://localhost:8000`.
+8. You can now access the application at `http://localhost:8000`.
 
 ## API Endpoints
 
